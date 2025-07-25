@@ -4,7 +4,7 @@ export default function Experience() {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch('http://168.197.50.86:3000/experience')
+    fetch('https://vps-5177755-x.dattaweb.com/experience')
       .then(res => res.json())
       .then(setJobs);
   }, []);

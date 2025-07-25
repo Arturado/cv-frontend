@@ -4,7 +4,7 @@ export default function About() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch('http://168.197.50.86:3000/about')
+    fetch('https://vps-5177755-x.dattaweb.com/about')
       .then(res => res.json())
       .then(setData);
   }, []);
