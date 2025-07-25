@@ -1,0 +1,22 @@
+import { useEffect, useState } from 'react';
+
+export default function Skills() {
+  const [skills, setSkills] = useState([]);
+
+  useEffect(() => {
+    fetch('http://168.197.50.86:3000/skills')
+      .then(res => res.json())
+      .then(setSkills);
+  }, []);
+
+  return (
+    <section>
+      <h2>Habilidades</h2>
+      <ul>
+        {skills.map(skill => (
+          <li key={skill}>{skill}</li>
+        ))}
+      </ul>
+    </section>
+  );
+}
