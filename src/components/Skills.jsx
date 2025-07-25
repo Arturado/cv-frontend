@@ -4,7 +4,7 @@ export default function Skills() {
   const [skills, setSkills] = useState([]);
 
   useEffect(() => {
-    fetch('https://vps-5177755-x.dattaweb.com/skills')
+    fetch('https://vps-5177755-x.dattaweb.com/api/skills')
       .then(res => res.json())
       .then(setSkills);
   }, []);

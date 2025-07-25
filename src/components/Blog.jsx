@@ -4,7 +4,7 @@ const Blog = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch('http://vps-5177755-x.dattaweb.com:8080/wp-json/wp/v2/posts')
+    fetch('https://vps-5177755-x.dattaweb.com/blog/wp-json/wp/v2/posts')
       .then(res => res.json())
       .then(data => setPosts(data))
       .catch(err => console.error('Error al traer posts:', err));
