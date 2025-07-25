@@ -1,6 +1,7 @@
 import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
+import Blog from './components/Blog';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <About />
       <Skills />
       <Experience />
+      <Blog />
     </div>
   );
 }
