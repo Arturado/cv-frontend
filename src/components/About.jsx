@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import './styles/About.css';
 
 export default function About() {
   const [data, setData] = useState(null);
@@ -9,14 +10,19 @@ export default function About() {
       .then(setData);
   }, []);
 
-  if (!data) return <p>Cargando...</p>;
+  if (!data) return <p className="has-text-centered">Cargando...</p>;
 
   return (
-    <section>
-      <h2>Sobre mí</h2>
-      <p><strong>{data.name}</strong> — {data.title}</p>
-      <p>{data.description}</p>
-      <p>📍 {data.location}</p>
+    <section className="section about-section">
+      <div className="container">
+        <h2 className="title is-3 has-text-primary">Sobre mí</h2>
+        <p className="subtitle is-5">
+          <strong>{data.name}</strong> — {data.title}
+        </p>
+        <p>{data.description}</p>
+        <p className="has-text-grey-dark mt-2">📍 {data.location}</p>
+        <p className="has-text-grey-dark mt-2"> 📍{data.languaje} </p>
+      </div>
     </section>
   );
 }
