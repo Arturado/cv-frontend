@@ -1,6 +1,7 @@
 import { useState } from "react";
+import "./styles/Header.css"; // si querés estilos extra personalizados
 
-export default function Navbar() {
+export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleScroll = (id: string) => {
@@ -21,40 +22,38 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white z-50 shadow-md">
-      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-        <div className="text-xl font-bold">Arturo Vásquez</div>
+    <nav className="navbar is-white is-fixed-top has-shadow" role="navigation" aria-label="main navigation">
+      <div className="navbar-brand">
+        <a className="navbar-item has-text-weight-bold is-size-5" href="#">
+          Arturo Vásquez
+        </a>
 
-        <div className="hidden md:flex gap-6">
-          {sections.map((sec) => (
-            <button
-              key={sec.id}
-              onClick={() => handleScroll(sec.id)}
-              className="text-gray-700 hover:text-blue-600 transition"
-            >
-              {sec.label}
-            </button>
-          ))}
-        </div>
-
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>☰</button>
-        </div>
+        <a
+          role="button"
+          className={`navbar-burger ${isOpen ? "is-active" : ""}`}
+          aria-label="menu"
+          aria-expanded={isOpen ? "true" : "false"}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
 
-      {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 px-4 pb-4 flex flex-col gap-4">
+      <div className={`navbar-menu ${isOpen ? "is-active" : ""}`}>
+        <div className="navbar-end">
           {sections.map((sec) => (
-            <button
+            <a
               key={sec.id}
+              className="navbar-item"
               onClick={() => handleScroll(sec.id)}
-              className="text-left text-gray-700 hover:text-blue-600"
             >
               {sec.label}
-            </button>
+            </a>
           ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 }
