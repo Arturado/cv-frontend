@@ -21,7 +21,7 @@ export default function About() {
         </p>
         <p>{data.description}</p>
         <p className="has-text-grey-dark mt-2">📍 {data.location}</p>
-        <p className="has-text-grey-dark mt-2"> 📍{data.languaje} </p>
+        <p className="has-text-grey-dark mt-2"> 📍{data.languajes} </p>
       </div>
     </section>
   );
